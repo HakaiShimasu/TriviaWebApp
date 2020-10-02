@@ -18,6 +18,8 @@
                 <td>{{ player.answers }}</td>
                 <td>{{ player.points }}</td>
                 <td>
+                    <button class="button is-primary" (click)="rightAnswer(player.id)" >Right +1</button>
+                    <button class="button is-primary" (click)="wrongAnswer(player.id)" >Wrong -1</button>
                     <button class="button is-primary" (click)="deletePlayers(player.id)" >Delete Player</button>
                 </td>
             </tr>

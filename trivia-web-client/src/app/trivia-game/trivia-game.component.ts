@@ -1,12 +1,16 @@
 import { TriviaService } from '../trivia.service';
 import { Player, PlayerService } from '../player.service';
 import { Component, OnInit } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { CommonModule } from '@angular/common';  
+
 
 @Component({
   selector: 'app-trivia-game',
   templateUrl: './trivia-game.component.html',
   styleUrls: ['./trivia-game.component.css']
 })
+
 export class TriviaGameComponent implements OnInit {
 
   players: Player[] = [];
@@ -64,5 +68,32 @@ export class TriviaGameComponent implements OnInit {
 
   appendPlayer(player : Player) {
     this.players.push(player)
+  }
+
+  answer(id, data) {
+    let player = this.findPlayer(id)
+    this.playerService
+      .answer(id, data)
+      .subscribe(
+        response => {
+          player.answers = response.answers
+          player.points = response.points
+        },
+        error => this.errorMessage = <any>error
+      )
+  }
+
+  rightAnswer(id) {
+    let data = {
+      correct: true
+    }
+    this.answer(id, data)
+  }
+
+  wrongAnswer(id) {
+    let data = {
+      correct: false
+    }
+    this.answer(id, data)
   }
 }

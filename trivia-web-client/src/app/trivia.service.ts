@@ -1,3 +1,4 @@
+import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
@@ -10,7 +11,7 @@ export class TriviaService {
 
   constructor(private http: HttpClient) { }
 
-  getQuestion() {
+  getQuestion(){
     return this.http.get(TRIVIA_ENDPOINT);
   }
 }

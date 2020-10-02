@@ -9,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 export class TriviaGameComponent implements OnInit {
 
   players: Player[] = [];
-  errorMessage: String;
+  errorMessage: String = '';
 
   constructor(private playerService: PlayerService) { }
 

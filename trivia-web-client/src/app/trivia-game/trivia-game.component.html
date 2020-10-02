@@ -1,1 +1,25 @@
-<p>trivia-game works!</p>
+<div>
+    <span class="help is-error" *ngIf="errorMessage">{{ errorMessage }}</span>
+    <table class="table" *ngIf="!errorMessage">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Answers</th>
+                <th>Points</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let player of players">
+                <td>{{ player.id }}</td>
+                <td>{{ player.name }}</td>
+                <td>{{ player.answers }}</td>
+                <td>{{ player.points }}</td>
+                <td>
+                    <button class="button is-primary">Delete Player</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

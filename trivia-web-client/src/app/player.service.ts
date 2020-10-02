@@ -8,7 +8,7 @@ export interface Player {
   id: Number,
   name: String,
   answers: Number,
-  point: Number
+  points: Number
 }
 
 @Injectable({

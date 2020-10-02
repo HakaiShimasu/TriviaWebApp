@@ -1,1 +1,7 @@
-<p>player-form works!</p>
+<span class="help is-danger">{{ errors }}</span>
+<div class="field">
+    <div class="control">
+        <input class="input" #playerName (keydown)="errors = ''"/>
+    </div>
+</div>
+<button type="button" class="button is-primary" (click)="addPlayer(playerName.value)">AddPlayer</button>

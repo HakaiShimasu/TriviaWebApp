@@ -1,3 +1,4 @@
+import { TriviaService } from '../trivia.service';
 import { Player, PlayerService } from '../player.service';
 import { Component, OnInit } from '@angular/core';
 
@@ -11,11 +12,23 @@ export class TriviaGameComponent implements OnInit {
   players: Player[] = [];
   errorMessage: String = '';
   isLoading: boolean = true;
+  question: any;
 
-  constructor(private playerService: PlayerService) { }
+  constructor(private playerService: PlayerService,
+              private triviaService: TriviaService) { }
 
   ngOnInit() {
     this.getPlayers()
+    this.getQuestion();
+  }
+
+  getQuestion(){
+    this.triviaService
+      .getQuestion()
+      .subscribe(
+        (response: any) => this.question = response.data,
+        error => this.errorMessage = <any>error
+      );
   }
 
   getPlayers() {

@@ -10,6 +10,7 @@ export class TriviaGameComponent implements OnInit {
 
   players: Player[] = [];
   errorMessage: String = '';
+  isLoading: boolean = true;
 
   constructor(private playerService: PlayerService) { }
 
@@ -20,9 +21,14 @@ export class TriviaGameComponent implements OnInit {
   getPlayers() {
     this.playerService.getPlayers()
         .subscribe(
-            (response: any)=> this.players = response.data,
-            error          => this.errorMessage = <any>error,
-            ()             => console.log(this.players)
+            (response: any)=> {
+              this.players = response.data
+              this.isLoading = false;
+            },
+            error          => {
+              this.errorMessage = <any>error,
+              this.isLoading = false;
+            }
         );
   }
 

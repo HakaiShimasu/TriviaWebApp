@@ -9,6 +9,7 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 export class PlayerFormComponent implements OnInit {
 
   errors: string = '';
+  isLoading: boolean = false;
 
   constructor(private playerService: PlayerService) { }
 
@@ -19,11 +20,15 @@ export class PlayerFormComponent implements OnInit {
   }
 
   addPlayer(name){
+    this.isLoading = true;
     this.playerService
       .addPlayers({
         name: name
       }).subscribe(
-        player => this.playerAdded.emit(player),
+        player => {
+          this.isLoading = false;
+          this.playerAdded.emit(player)
+        },
         error  => this.errors = error.json().errors
       );
   }

@@ -17,3 +17,9 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+Route::get('/players', 'PlayerController@index');
+Route::get('/players/{id}', 'PlayerController@show');
+Route::post('/players', 'PlayerController@store');
+Route::post('/players/{id}/answers', 'PlayerController@answer');
+Route::delete('/players/{id}', 'PlayerController@delete');
+Route::delete('/players/{id}/answers', 'PlayerController@resetAnswers');

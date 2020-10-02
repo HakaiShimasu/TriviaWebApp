@@ -26,4 +26,8 @@ export class TriviaGameComponent implements OnInit {
         );
   }
 
+  findPlayer(id): Player {
+    return this.players.find(player => player.id === id);
+  }
+
 }

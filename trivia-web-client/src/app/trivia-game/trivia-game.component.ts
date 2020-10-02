@@ -30,4 +30,8 @@ export class TriviaGameComponent implements OnInit {
     return this.players.find(player => player.id === id);
   }
 
+  appendPlayer(player : Player) {
+    this.players.push(player)
+  }
+
 }

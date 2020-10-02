@@ -17,7 +17,7 @@
                 <td>{{ player.answers }}</td>
                 <td>{{ player.points }}</td>
                 <td>
-                    <button class="button is-primary">Delete Player</button>
+                    <button class="button is-primary" (click)="deletePlayers(player.id)" >Delete Player</button>
                 </td>
             </tr>
         </tbody>

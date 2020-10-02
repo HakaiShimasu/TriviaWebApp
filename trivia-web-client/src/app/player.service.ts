@@ -26,4 +26,8 @@ export class PlayerService {
   addPlayers(player): Observable<Player> {
     return this.http.post<Player>(API_URL + '/players', player);
   }
+
+  deletePlayer(id): Observable<Player> {
+    return this.http.delete<Player>(API_URL + "/players/"+ id);
+  }
 }

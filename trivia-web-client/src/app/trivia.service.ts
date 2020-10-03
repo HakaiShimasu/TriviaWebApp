@@ -7,6 +7,7 @@ const TRIVIA_ENDPOINT: string = 'http://localhost:8000/question';
 @Injectable({
   providedIn: 'root'
 })
+
 export class TriviaService {
 
   constructor(private http: HttpClient) { }

@@ -16,25 +16,25 @@ export class TriviaGameComponent implements OnInit {
   players: Player[] = [];
   errorMessage: String = '';
   isLoading: boolean = true;
-  question: any[] = [];
+  question: any;
 
   constructor(private playerService: PlayerService,
               private triviaService: TriviaService) { }
 
   ngOnInit() {
     this.getPlayers()
-    //this.getQuestion();
+    this.getQuestion();
   }
 
-  /*getQuestion(){
+  getQuestion(){
     this.triviaService
       .getQuestion()
       .subscribe(
-        (response: any) => this.question = response.data,
+        question => this.question = question[0],
         error => this.errorMessage = <any>error,
         () => console.log(this.question)
       );
-  }*/
+  }
 
   getPlayers() {
     this.playerService.getPlayers()

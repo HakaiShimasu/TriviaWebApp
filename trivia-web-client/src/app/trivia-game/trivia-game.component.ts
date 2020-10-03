@@ -78,13 +78,11 @@ export class TriviaGameComponent implements OnInit {
       .subscribe(
         (response: any) => {
           player = response
-          response.next
+          this.getPlayers()
         },
         error => this.errorMessage = <any>error,
-        () => console.log(player),
+        () => console.log(''),
       )
-      //this.getPlayers()
-      
   }
 
   rightAnswer(id) {

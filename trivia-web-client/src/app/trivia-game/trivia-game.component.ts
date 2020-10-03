@@ -67,6 +67,7 @@ export class TriviaGameComponent implements OnInit {
   }
 
   appendPlayer(player : Player) {
+    this.getPlayers()
     this.players.push(player)
   }
 

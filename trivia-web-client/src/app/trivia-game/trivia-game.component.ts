@@ -32,7 +32,6 @@ export class TriviaGameComponent implements OnInit {
       .subscribe(
         question => this.question = question[0],
         error => this.errorMessage = <any>error,
-        () => console.log(this.question)
       );
   }
 
@@ -67,8 +66,7 @@ export class TriviaGameComponent implements OnInit {
   }
 
   appendPlayer(player : Player) {
-    this.getPlayers()
-    this.players.push(player)
+      this.players.push(player)
   }
 
   answer(id, data) {

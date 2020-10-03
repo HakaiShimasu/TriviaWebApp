@@ -3,6 +3,7 @@ import { Player, PlayerService } from '../player.service';
 import { Component, OnInit } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { CommonModule } from '@angular/common';  
+import { Subscriber } from 'rxjs';
 
 
 @Component({
@@ -67,6 +68,7 @@ export class TriviaGameComponent implements OnInit {
 
   appendPlayer(player : Player) {
       this.players.push(player)
+      this.getPlayers()
   }
 
   answer(id, data) {
@@ -78,7 +80,7 @@ export class TriviaGameComponent implements OnInit {
           player.answers = response.answers
           player.points = response.points
         },
-        error => this.errorMessage = <any>error
+        error => this.errorMessage = <any>error,
       )
   }
 

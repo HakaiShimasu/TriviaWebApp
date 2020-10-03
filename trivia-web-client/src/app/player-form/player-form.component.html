@@ -4,4 +4,4 @@
         <input class="input" #playerName (keydown)="errors = ''"/>
     </div>
 </div>
-<button type="button" class="button is-primary" [class.is-loading]="isLoading" (click)="addPlayer(playerName.value)">Add Player</button>
+<button type="button" class="button is-primary" [class.is-loading]="isLoading" (click)="addPlayer(playerName.value); playerName.value=''">Add Player</button>

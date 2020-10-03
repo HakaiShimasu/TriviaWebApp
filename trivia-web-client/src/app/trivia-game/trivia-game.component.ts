@@ -76,12 +76,15 @@ export class TriviaGameComponent implements OnInit {
     this.playerService
       .answer(id, data)
       .subscribe(
-        response => {
-          player.answers = response.answers
-          player.points = response.points
+        (response: any) => {
+          player = response
+          response.next
         },
         error => this.errorMessage = <any>error,
+        () => console.log(player),
       )
+      //this.getPlayers()
+      
   }
 
   rightAnswer(id) {

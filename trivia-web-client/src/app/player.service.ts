@@ -32,6 +32,6 @@ export class PlayerService {
   }
 
   answer(id, data): Observable<Player> {
-    return this.http.post<Player>(API_URL + '/players' + id + '/answers', data);
+    return this.http.post<Player>(API_URL + '/players/' + id + '/answers', data);
   }
 }

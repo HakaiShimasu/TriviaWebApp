@@ -34,4 +34,10 @@ export class PlayerService {
   answer(id, data): Observable<Player> {
     return this.http.post<Player>(API_URL + '/players/' + id + '/answers', data);
   }
+
+  resetAnswer(id): Observable<Player> {
+    () => console.log('ci sono');
+    () => console.log(API_URL + '/players/' + id + '/answers');
+    return this.http.delete<Player>(API_URL + '/players/' + id + '/answers');
+  }
 }

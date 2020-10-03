@@ -65,6 +65,7 @@ class PlayerController extends Controller
         $player = Player::findOrFail($id);
         $player->answers = 0;
         $player->points = 0;
+        $player->save();
 
         return new PlayerResource($player);
     }

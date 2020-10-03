@@ -26,6 +26,9 @@
           </tr>
       </tbody>
   </table>
+  <div>
+    <button class="button is-primary" (click)="resetAnswers()">Reset All Answers</button>&nbsp;
+  </div>
   <app-player-form (playerAdded)="appendPlayer($event)"></app-player-form>
       <div class="card" *ngIf="question?.question">
         <div class="card-content">

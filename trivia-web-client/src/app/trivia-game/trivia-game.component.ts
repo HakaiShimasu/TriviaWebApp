@@ -1,9 +1,7 @@
 import { TriviaService } from '../trivia.service';
 import { Player, PlayerService } from '../player.service';
 import { Component, OnInit } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-import { CommonModule } from '@angular/common';  
-import { Subscriber } from 'rxjs';
+
 
 
 @Component({
@@ -80,8 +78,7 @@ export class TriviaGameComponent implements OnInit {
           player = response
           this.getPlayers()
         },
-        error => this.errorMessage = <any>error,
-        () => console.log(''),
+        error => this.errorMessage = <any>error
       )
   }
 
@@ -97,5 +94,21 @@ export class TriviaGameComponent implements OnInit {
       correct: false
     }
     this.answer(id, data)
+  }
+
+  resetAnswers(){
+    for(var i = 0; i < this.players.length; i++){
+      let player = this.findPlayer(this.players[i].id)
+      this.playerService
+      .resetAnswer(player.id)
+      .subscribe(
+        (response: any) => {
+          player = response
+          console.log(player)
+          this.getPlayers()
+        },
+        error => this.errorMessage = <any>error
+        )
+    }
   }
 }

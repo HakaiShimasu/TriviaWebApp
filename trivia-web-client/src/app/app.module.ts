@@ -21,11 +21,13 @@ const routes: Routes = [
     TriviaGameComponent,
     PlayerFormComponent
   ],
+
   imports: [
     BrowserModule,
     RouterModule.forRoot(routes),
     HttpClientModule
   ],
+  
   providers: [],
   bootstrap: [AppComponent]
 })
